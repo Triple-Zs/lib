@@ -1,0 +1,163 @@
+local isExistance = false
+
+local Notify = Instance.new('ScreenGui')
+local NotificationParent = Instance.new('ScrollingFrame')
+local UIListLayout = Instance.new('UIListLayout')
+local UIPadding = Instance.new('UIPadding')
+local Notification = Instance.new('Frame')
+local Container = Instance.new('Frame')
+local Body = Instance.new('Frame')
+local UIPadding_2 = Instance.new('UIPadding')
+local Content = Instance.new('TextLabel')
+local Top = Instance.new('Frame')
+local Label = Instance.new('TextLabel')
+local Accent = Instance.new('Frame')
+
+if game.CoreGui:FindFirstChild('Notify') then
+	isExistance = true
+	Notify = game.CoreGui.Notify
+	NotificationParent = Notify.NotificationParent
+	Notification = NotificationParent.Notification
+end
+
+Notify.Name = 'Notify'
+Notify.Parent = game.CoreGui
+Notify.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+Notify.ResetOnSpawn = false
+
+NotificationParent.Name = 'NotificationParent'
+NotificationParent.Parent = Notify
+NotificationParent.AnchorPoint = Vector2.new(1, 0)
+NotificationParent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NotificationParent.BackgroundTransparency = 1.000
+NotificationParent.BorderSizePixel = 0
+NotificationParent.ClipsDescendants = false
+NotificationParent.Position = UDim2.new(1, 0, 0, -25)
+NotificationParent.Selectable = false
+NotificationParent.Size = UDim2.new(0, 275, 1, 0)
+NotificationParent.CanvasSize = UDim2.new(0, 0, 0, 0)
+NotificationParent.ScrollBarThickness = 0
+NotificationParent.ScrollingEnabled = false
+
+UIListLayout.Parent = NotificationParent
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
+UIListLayout.Padding = UDim.new(0, 5)
+
+UIPadding.Parent = NotificationParent
+UIPadding.PaddingRight = UDim.new(0, 25)
+
+Notification.Name = 'Notification'
+Notification.Parent = NotificationParent
+Notification.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Notification.BackgroundTransparency = 1.000
+Notification.BorderSizePixel = 0
+Notification.Position = UDim2.new(1, 0, 0, 0)
+Notification.Size = UDim2.new(0, 250, 0, 95)
+Notification.Visible = false
+
+Container.Name = 'Container'
+Container.Parent = Notification
+Container.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Container.BorderColor3 = Color3.fromRGB(60, 60, 60)
+Container.Position = UDim2.new(0.5, -125, 1, -68)
+Container.Size = UDim2.new(0, 250, 0, 68)
+
+Body.Name = 'Body'
+Body.Parent = Container
+Body.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Body.BorderColor3 = Color3.fromRGB(35, 35, 35)
+Body.Position = UDim2.new(0.5, -123, 0.583823681, -38)
+Body.Size = UDim2.new(0, 246, 0, 64)
+
+UIPadding_2.Parent = Body
+UIPadding_2.PaddingBottom = UDim.new(0, 12)
+UIPadding_2.PaddingLeft = UDim.new(0, 12)
+UIPadding_2.PaddingRight = UDim.new(0, 12)
+UIPadding_2.PaddingTop = UDim.new(0, 12)
+
+Content.Name = 'Content'
+Content.Parent = Body
+Content.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Content.BackgroundTransparency = 1.000
+Content.BorderSizePixel = 0
+Content.Position = UDim2.new(-0.0450450443, 0, 0.232692301, 0)
+Content.Size = UDim2.new(1, 0, 0.865384638, 0)
+Content.Font = Enum.Font.Gotham
+Content.Text = ''
+Content.TextColor3 = Color3.fromRGB(230, 230, 230)
+Content.TextSize = 14.000
+Content.TextWrapped = true
+Content.TextXAlignment = Enum.TextXAlignment.Left
+Content.TextYAlignment = Enum.TextYAlignment.Top
+
+Top.Name = 'Top'
+Top.Parent = Container
+Top.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Top.BackgroundTransparency = 1.000
+Top.Position = UDim2.new(0.00800000038, 0, 0.018518785, 0)
+Top.Size = UDim2.new(0, 246, 0, 10)
+
+Label.Name = 'Label'
+Label.Parent = Top
+Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Label.BackgroundTransparency = 1.000
+Label.Position = UDim2.new(0, 2, 0.0500000007, 0)
+Label.Size = UDim2.new(0, 94, 0, 11)
+Label.Font = Enum.Font.Gotham
+Label.Text = 'Vex | <font color=\'rgb(139, 56, 28)\'>Notification</font>'
+Label.TextColor3 = Color3.fromRGB(255, 255, 255)
+Label.TextSize = 10.000
+Label.TextStrokeTransparency = 0.000
+Label.TextXAlignment = Enum.TextXAlignment.Left
+Label.RichText = true
+
+Accent.Name = 'Accent'
+Accent.Parent = Top
+Accent.AnchorPoint = Vector2.new(0, 1)
+Accent.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Accent.BackgroundTransparency = 0.700
+Accent.BorderSizePixel = 0
+Accent.Position = UDim2.new(0, 0, 1.39999998, 0)
+Accent.Size = UDim2.new(1, 0, 0, 1)
+
+
+
+
+if isExistance then
+	UIListLayout:Destroy()
+	UIPadding:Destroy()
+	Container:Destroy()
+end
+
+local T = game:GetService('TweenService')
+local t = TweenInfo.new(0.5, Enum.EasingStyle.Quint)
+local tp = NotificationParent
+
+function prompt(text, closeTime)
+	local Prompt = Notification:Clone()
+	Prompt.Visible = true
+	Prompt.Container.Body.Content.Text = text
+	Prompt.Parent = NotificationParent
+	T:Create(Prompt.Container, t, {Position = UDim2.new(0, 0, 0, 0)}):Play()
+	wait(1)
+	task.spawn(function()
+		if typeof(closeTime) == 'number' then
+			task.wait(closeTime)
+			local s = pcall(function()
+				T:Create(Prompt.Container, t, {Position = UDim2.new(2, 0, 0, 0)}):Play()
+				wait(0.48)
+				Prompt:Destroy()
+			end)
+		end
+	end)
+end
+
+local lib = {}
+
+function lib.prompt(description, closeTime)
+    prompt(description, closeTime)
+end
+
+return lib
