@@ -61,7 +61,7 @@ finity.dark_theme = { -- dark
 	textbox_text_hover = Color3.fromRGB(232, 232, 232),
 	textbox_placeholder = Color3.fromRGB(135, 135, 138),
 
-	dropdown_background = Color3.fromRGB(35, 35, 35),
+	dropdown_background = Color3.fromRGB(85, 74, 189),
 	dropdown_text = Color3.fromRGB(195, 195, 195),
 	dropdown_text_hover = Color3.fromRGB(232, 232, 232),
 	dropdown_scrollbar_color = Color3.fromRGB(118, 118, 121),
@@ -209,9 +209,9 @@ function finity.new(isdark, gprojectName, thinProject)
 		BackgroundColor3 = theme.main_container,
 		BorderSizePixel = 0,
 		Position = UDim2.new(0.5, 0, 0.5, 0),
-		Size = UDim2.new(0, 900, 0, 400),
+		Size = UDim2.new(0, 850, 0, 400),
 		ZIndex = 2,
-		ImageTransparency = 0.5
+		ImageTransparency = 1
     })
     
     self2.modal = self:Create("TextButton", {
