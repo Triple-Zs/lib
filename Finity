@@ -32,7 +32,7 @@ finity.theme = { -- light
 	
 	button_background = Color3.fromRGB(198, 189, 202),
 	button_background_hover = Color3.fromRGB(215, 206, 227),
-	button_background_down = Color3.fromRGB(178, 169, 182),
+	button_background_down = Color3.fromRGB(85, 74, 189),
 	
 	scrollbar_color = Color3.fromRGB(198, 189, 202),
 }
