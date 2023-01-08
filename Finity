@@ -48,7 +48,7 @@ finity.dark_theme = { -- dark
 
 	checkbox_checked = Color3.fromRGB(85, 74, 189),
 	checkbox_outer = Color3.fromRGB(25, 25, 32),
-	checkbox_inner = Color3.fromRGB(142, 134, 219),
+	checkbox_inner = Color3.fromRGB(15, 15, 15),
 
 	slider_color = Color3.fromRGB(85, 74, 189),
 	slider_color_sliding = Color3.fromRGB(109, 98, 209),
@@ -205,7 +205,7 @@ function finity.new(isdark, gprojectName, thinProject)
 		Active = true,
 		Name = "Container",
 		AnchorPoint = Vector2.new(0.5, 0.5),
-		BackgroundTransparency = 0.5,
+		BackgroundTransparency = 0,
 		BackgroundColor3 = theme.main_container,
 		BorderSizePixel = 0,
 		Position = UDim2.new(0.5, 0, 0.5, 0),
